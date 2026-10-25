@@ -1,0 +1,9 @@
+[project]
+name = "mini-expense-tracker"
+version = "0.1.0"
+description = "A local SQLite CLI to record expenses and total them by currency. It does not make FX assumptions."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.ruff]
+line-length = 100

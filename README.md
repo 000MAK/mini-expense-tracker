@@ -1,21 +1,41 @@
 # Mini Expense Tracker
 
-A local SQLite CLI to record expenses and total them by currency. It does not make FX assumptions.
+A local command-line expense tracker built with Python and SQLite. It records expenses and calculates totals grouped by currency code without assuming or applying foreign-exchange rates.
+
+**Independent demonstration project** · Python 3.10+ · Standard library only · MIT license
+
+## Features
+
+- Stores expense entries in a local SQLite database.
+- Captures a date, amount, three-letter currency code, category, and optional note.
+- Rejects non-positive amounts and invalid currency-code lengths.
+- Calculates totals separately for each currency.
+- Runs locally; it does not connect to a bank, payment processor, or FX service.
 
 ## Requirements
 
-- Python 3.10+
-- Standard library only; no `pip install` step required.
+- Python 3.10 or later
+- No third-party package installation required
 
-## Run
+## Quick start
+
+Show available commands:
 
 ```bash
 python main.py --help
 ```
 
-## Example
+Add a sample expense to a local database:
 
-`python main.py add --db expenses.db --day 2026-10-25 --amount 12.50 --currency USD --category food` then `python main.py --db expenses.db total`
+```bash
+python main.py add --db expenses.db --day 2026-10-25 --amount 12.50 --currency USD --category food
+```
+
+Display totals by currency:
+
+```bash
+python main.py --db expenses.db total
+```
 
 ## Tests
 
@@ -23,9 +43,14 @@ python main.py --help
 python -m unittest discover -s tests -v
 ```
 
-## Safety notes
+## Limitations and privacy
 
-Use copies of important files. Review output before using it in production. Do not add credentials, private data, or real customer files to Git.
+This is a minimal local record-keeping example, not accounting, tax, or financial advice. It does not verify dates against a calendar, manage budgets, reconcile transactions, or convert currencies. Keep the generated database private if it contains real financial records; use synthetic data in public demonstrations.
+
+## Related Quantix projects
+
+- [Mini Freelance Rate Calculator](https://github.com/000MAK/mini-freelance-rate-calculator)
+- [Quantix — 100 Mini Python Projects](https://github.com/000MAK/quantix-100-new-mini-projects)
 
 ## License
 
